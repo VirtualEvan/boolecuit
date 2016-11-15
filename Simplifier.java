@@ -5,11 +5,43 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.lang.Math;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
 public class Simplifier {
-  private char[] varArray;
 
 
-  public void calc(){
+  public static void calc(String expresion, Map<String, Integer> mapaVariables){
+    ScriptEngine engine = new ScriptEngineManager().getEngineByName("JavaScript");
+    String[] varArray = new String[mapaVariables.size()];
+    int count = 0;
+    for (String key: mapaVariables.keySet()) {
+      System.out.print(key + " ");
+    }
+    System.out.println();
+    for (String key: mapaVariables.keySet()) {
+      System.out.print(mapaVariables.get(key)+ " ");
+
+      varArray[count] = key + " = " + mapaVariables.get(key);
+      count++;
+    }
+    System.out.print("     ");
+
+    try{
+      for (String s : varArray) {
+          engine.eval(s);
+      }
+
+    String expr = expresion.replaceAll("NOT", "!");
+    expr = expr.replaceAll("OR", "|");
+    expr = expr.replaceAll("AND", "&");
+    
+    System.out.println(engine.eval(expr));
+    }
+    catch(ScriptException e){
+      System.out.println(e);
+    }
   }
 
   public static void main( String args[] ){
@@ -18,7 +50,7 @@ public class Simplifier {
     String auxBinario;
     String auxFormato;
 
-    Pattern pattern = Pattern.compile("([A-Z])");
+    Pattern pattern = Pattern.compile("([a-z])");
     Matcher matcher = pattern.matcher(args[0]);
 
     while( matcher.find() ){
@@ -32,10 +64,13 @@ public class Simplifier {
       for (int j = 0; j < valoresBinarios.length; j++){
         mapaVariables.put(mapaVariables.keySet().toArray()[j].toString(), Character.getNumericValue(valoresBinarios[j]));
       }
+      calc( args[0], mapaVariables );
+      /*
       for (String key: mapaVariables.keySet()) {
-        System.out.println(key + " - " + mapaVariables.get(key));
+        //System.out.println(key + " - " + mapaVariables.get(key));
       }
-      System.out.println( );
+      */
+      //System.out.println( );
     }
 
 
