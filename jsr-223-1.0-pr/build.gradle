@@ -1,0 +1,4 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('jsr-223-1.0-pr.jar'))
+dependencies {
+}

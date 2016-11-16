@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Boolecuit.iml" filepath="$PROJECT_DIR$/Boolecuit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsr-223-1.0-pr/jsr-223-1.0-pr.iml" filepath="$PROJECT_DIR$/jsr-223-1.0-pr/jsr-223-1.0-pr.iml" />
+    </modules>
+  </component>
+</project>
