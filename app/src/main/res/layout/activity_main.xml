@@ -35,19 +35,119 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/ed_expresion" />
+                android:id="@+id/ed_expresion"
+                android:enabled="false" />
 
-            <Button
-                android:text="Evaluar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/bt_evaluar" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+
+            <Button
+                android:text="a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_a"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_b"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_c"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_d"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="e"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_e"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:text="AND"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_and"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="OR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_or"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="NOT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_not"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="("
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_left"
+                android:layout_weight="1" />
+
+            <Button
+                android:text=")"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_right"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:text="Backspace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_backspace"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="Reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_reset"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -57,6 +157,20 @@
 
             </TableLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:text="Evaluar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_evaluar"
+                android:layout_weight="1" />
         </LinearLayout>
     </LinearLayout>
 

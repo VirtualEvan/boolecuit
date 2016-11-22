@@ -1,1 +1,1 @@
-include ':app', ':jsr-223-1.0-pr'
+include ':app'
