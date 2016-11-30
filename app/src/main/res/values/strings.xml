@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Boolecuit</string>
+    <string name="title_activity_table">Resultado</string>
+    <string name="action_history">History</string>
 </resources>

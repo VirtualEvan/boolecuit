@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.virtualevan.boolecuit.MainActivity">
+    tools:context="com.virtualevan.boolecuit.view.MainActivity">
 
     <LinearLayout
         android:orientation="vertical"
@@ -141,21 +141,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/bt_reset"
                 android:layout_weight="1" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:id="@+id/ly_table">
-
-            </TableLayout>
 
         </LinearLayout>
 
