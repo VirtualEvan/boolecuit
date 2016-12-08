@@ -17,7 +17,7 @@
         </activity>
         <activity
             android:name=".view.TableActivity"
-            android:label="@string/title_activity_table"
+            android:label="@string/table_title"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

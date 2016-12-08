@@ -1,27 +1,40 @@
 package com.virtualevan.boolecuit.view;
 
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TableLayout;
 
 import com.virtualevan.boolecuit.R;
 import com.virtualevan.boolecuit.core.SqlIO;
 
+import java.util.LinkedList;
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
-    private SqlIO db;
+    private static SqlIO db;
+    private static SQLiteDatabase dbWrite;
+    private static SQLiteDatabase dbRead;
+    private List<String> expressions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         db = new SqlIO( this.getApplicationContext() );
+        dbWrite = db.getWritableDatabase();
+        dbRead = db.getReadableDatabase();
+        expressions = new LinkedList<>();
 
-        final TableLayout ly_table = (TableLayout) findViewById(R.id.ly_table);
         Button bt_a = (Button) this.findViewById( R.id.bt_a);
         Button bt_b = (Button) this.findViewById( R.id.bt_b);
         Button bt_c = (Button) this.findViewById( R.id.bt_c);
@@ -162,8 +175,70 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public SqlIO getDb(){
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+
+        SharedPreferences prefs = this.getPreferences( Context.MODE_PRIVATE );
+        String expr = prefs.getString( "expr", "" );
+
+
+        final EditText ed_expression = (EditText) this.findViewById( R.id.ed_expresion );
+
+        ed_expression.setText( expr );
+        invalidateOptionsMenu();
+    }
+
+
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+
+        SharedPreferences.Editor edit = this.getPreferences( Context.MODE_PRIVATE ).edit();
+        final EditText ed_expression = (EditText) this.findViewById( R.id.ed_expresion );
+
+        edit.putString( "expr", ed_expression.getText().toString() );
+        edit.apply();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        menu.clear();
+        expressions = new LinkedList<>();
+        this.expressions = TableActivity.onRead( db.getReadableDatabase(), expressions );
+        for(int i = 0; i<expressions.size(); i++){
+            menu.add(0, i, 0, expressions.get(i));
+        }
+        super.onCreateOptionsMenu( menu );
+        this.getMenuInflater().inflate( R.menu.menu_table, menu );
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem)
+    {
+        Intent tableActivityIntent = new Intent( MainActivity.this, TableActivity.class );
+        tableActivityIntent.putExtra( "expression", menuItem.getTitle().toString() );
+
+        startActivity( tableActivityIntent );
+
+        return true;
+    }
+
+    public static SqlIO getDb(){
         return db;
+    }
+
+    public static SQLiteDatabase getReadable(){
+        return dbRead;
+    }
+
+    public static SQLiteDatabase getWritable(){
+        return dbWrite;
     }
 
 }

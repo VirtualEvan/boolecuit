@@ -5,6 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.List;
+
 /**
  * Created by VirtualEvan on 29/11/2016.
  */
@@ -47,4 +49,19 @@ public class SqlIO extends SQLiteOpenHelper{
         }
         this.onCreate( db );
     }
+
+    public void onInsert(SQLiteDatabase db, List<String> expressions){
+        try {
+            db.beginTransaction();
+                db.execSQL( "DELETE FROM history" );
+                for(int i=0; i<expressions.size(); i++){
+                    db.execSQL( "INSERT INTO history "+expressions.get(i) );
+                }
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+
+    }
+
 }

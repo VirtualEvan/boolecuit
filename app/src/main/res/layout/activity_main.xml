@@ -27,7 +27,7 @@
                 android:text="Expresión Regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/lbl_expresion"
+                android:id="@+id/lbl_expression"
                 android:gravity="center_horizontal" />
 
             <EditText
@@ -36,7 +36,8 @@
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/ed_expresion"
-                android:enabled="false" />
+                android:enabled="false"
+                android:maxEms="4"/>
 
         </LinearLayout>
 
