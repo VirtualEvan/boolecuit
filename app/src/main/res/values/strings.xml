@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">Boolecuit</string>
-    <string name="table_title">Resultados</string>
+    <string name="table_title">Results</string>
     <string name="action_history">History</string>
+    <string name="eval">EVAL</string>
+    <string name="a">A</string>
+    <string name="b">B</string>
+    <string name="c">C</string>
+    <string name="d">D</string>
+    <string name="e">E</string>
+    <string name="and">AND</string>
+    <string name="or">OR</string>
+    <string name="not">NOT</string>
+    <string name="left_parenthesis">(</string>
+    <string name="right_parenthesis">)</string>
+    <string name="backspace">BACKSPACE</string>
+    <string name="reset">RESET</string>
 </resources>
